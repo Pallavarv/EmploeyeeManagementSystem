@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "com.proj.employeemanagement.persistence.Project" table = "project">
+      
+      <meta attribute = "class-description">
+         This class contains the employee detail. 
+      </meta>
+      
+      <id name = "id" type = "integer" column = "id">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "name" column = "name" type = "string"/>
+      <property name = "domain" column = "domain" type = "string"/>
+      <property name = "startDate" column = "start_date" type = "date"/>
+      <property name = "managerName" column = "manager_name" type = "string"/>
+      
+      <bag name = "employees" table = "project_employee" fetch = "join">
+            <key column = "project_id" not-null = "true" ></key>
+	        <many-to-many column = "employee_id" class = "com.proj.employeemanagement.persistence.Employee" />
+      </bag>      
+   </class>
+</hibernate-mapping>

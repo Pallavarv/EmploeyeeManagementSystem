@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status = "INFO">
+    <Appenders>
+        <File name = "FileLogger" fileName = "com/proj/employeemanagement/log/employeemanagement.log"
+            immediateFlush = "true" append = "false">
+            <PatternLayout pattern = "%d{yyy-MM-dd HH:mm:ss.SSS} [%-6p] %c{6} – %m%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name = "com.proj.employeemanagement.logger" level = "error" additivity = "false">
+            <AppenderRef ref = "FileLogger"/>
+        </Logger>
+        <Root level = "error">
+            <AppenderRef ref = "FileLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>
